@@ -1,12 +1,17 @@
 let path = require('path');
+let webpack = require('webpack');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  watch: true,
   devtool: false, //去掉dist中的eval函数
   entry: {
     index: './src/index.js',
+  },
+  devServer: {
+    hot: true,
+    historyApiFallback: true,
+    compress: true
   },
   output: {
     filename: '[name].js',
